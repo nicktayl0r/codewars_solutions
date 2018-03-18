@@ -25,3 +25,25 @@ function deleteNth(arr,n){
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//03.17.18
+//http://www.codewars.com/kata/5503013e34137eeeaa001648
+//You need to return a string that displays a diamond shape on the screen using asterisk ("*") characters.
+
+function diamond(n){
+  if((n < 1) || (n%2 === 0) ){
+    return null;
+  } else {
+    let diam = "";
+    for(let i = 1; i < n; i+=2){
+      diam += (" ".repeat(((n-i)/2)) + "*".repeat((i)) + "\n");
+    }
+    for(let i = n; i > 0; i-=2){
+      diam += (" ".repeat((n-i)/2) + "*".repeat(i) + "\n");
+    }
+    return diam;
+  }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
