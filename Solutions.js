@@ -113,7 +113,6 @@ function decrypt(encryptedText, n) {
 function isPrime(x) {
 	if (x === 2) return true; // as @Graipher commented
 	if (x % 2 !== 0) {
-		
 		for (var i = 2; i <= x / 2; i++) {
 			if (x % i === 0) {
 				return false;
@@ -125,9 +124,7 @@ function isPrime(x) {
 }
 
 function gap(g, m, n) {
-  
 	var lastPrime = null; // cache-value
-
 	for (var i = m; i < n; i++) {
 		if (isPrime(i)) {
 			if (lastPrime === null) {
@@ -141,3 +138,25 @@ function gap(g, m, n) {
 	}
 	return null; 
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//03.21.18
+//https://www.codewars.com/kata/directions-reduction/train/javascript/5ab200ca8d28f685c300009f
+//Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side).
+
+function dirReduc(arr){
+  arr.forEach((elem, i) => {
+   let n = arr.slice(i, i+2);
+   if((n[0]==='NORTH' && n[1]==='SOUTH') || (n[0]==='SOUTH' && n[1]==='NORTH') || (n[0]==="EAST" && n[1]==="WEST") || (n[0]==="WEST" && n[1]==="EAST")){
+     arr.splice(i, 2);
+     dirReduc(arr);
+   } else if (n[1] === 'undefined'){
+     return arr;
+   }
+ });
+ return arr;
+}
+
