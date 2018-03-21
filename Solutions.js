@@ -100,3 +100,44 @@ function decrypt(encryptedText, n) {
   
   return encryptedText;
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//03.20.18
+//https://www.codewars.com/kata/561e9c843a2ef5a40c0000a4
+//this function should return the first pair of two prime numbers spaced with a gap of g between the limits m, n if these numbers exist otherwise nil or null or None or Nothing (depending on the language).
+
+
+function isPrime(x) {
+	if (x === 2) return true; // as @Graipher commented
+	if (x % 2 !== 0) {
+		
+		for (var i = 2; i <= x / 2; i++) {
+			if (x % i === 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+function gap(g, m, n) {
+  
+	var lastPrime = null; // cache-value
+
+	for (var i = m; i < n; i++) {
+		if (isPrime(i)) {
+			if (lastPrime === null) {
+				lastPrime = i;
+			} else if (i - lastPrime === g) {
+				return [lastPrime, i];
+			} else {
+				lastPrime = i;
+			}
+		}
+	}
+	return null; 
+}
