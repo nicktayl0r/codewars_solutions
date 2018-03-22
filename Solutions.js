@@ -160,3 +160,22 @@ function dirReduc(arr){
  return arr;
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//03.22.18
+//https://github.com/cwbriones/interview-practice/tree/master/fountains
+//Output: An array of flooded areas, where 1 means it is flooded and 0 means it is dry.
+
+function Fountain(area, fountains){
+  if (area.length !== fountains.length) {return 'bollocks'}
+  let f = fountains.indexOf(1), flooded = [];
+  flooded[f] = 1;
+  for(let i = 0; i < area.length; i++){
+    if (area[f+i] <= area[f] && flooded[f+i-1]) {flooded[f+i] = 1}
+    if (area[f-i] <= area[f] && flooded[f-i+1]) {flooded[f-i] = 1}
+    if (flooded[i] === undefined){ flooded[i] = 0}
+  }
+  return flooded;
+}
