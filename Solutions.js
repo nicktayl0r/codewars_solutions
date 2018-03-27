@@ -179,3 +179,31 @@ function Fountain(area, fountains){
   }
   return flooded;
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//03.27.18
+//https://www.codewars.com/kata/primes-in-numbers/javascript
+//Given a positive number n > 1 find the prime factor decomposition of n. The result will be a string with the following form :
+
+const primeFactors = (n) => {
+  let primes = {};
+  let output = '';
+  for(let i = 2; i <= n;i++){
+    if(n%i === 0){
+      isNaN(primes[i]) ? primes[i] = 1: primes[i]++;
+      n = n/i;
+      i = 1;
+    }
+  }
+  for(let p in primes){
+    if(primes[p] === 1){
+      output = output + `(${p})`;
+    } else {
+      output = output + `(${p}**${primes[p]})`;
+    }
+  }
+  return output;
+};
