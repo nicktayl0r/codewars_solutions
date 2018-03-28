@@ -207,3 +207,24 @@ const primeFactors = (n) => {
   }
   return output;
 };
+
+//03.28.18
+//https://www.codewars.com/kata/550498447451fbbd7600041c
+//Given two arrays a and b write a function comp(a, b) (compSame(a, b) in Clojure) that checks whether the two arrays have the "same" elements, with the same multiplicities. "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+
+
+
+function comp(array1, array2){
+  let isSquare = true;
+  if (!array1 || !array2) return false;
+  array1.forEach((elem, indx) => {
+    let square = elem * elem;
+    if(!array2.includes(square)) {
+      isSquare = false;
+    }
+    array1 = array1.slice(1)
+    array2.splice(array2.indexOf(square), 1)
+  });
+  return isSquare;
+}
+
