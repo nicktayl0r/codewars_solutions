@@ -228,3 +228,20 @@ function comp(array1, array2){
   return isSquare;
 }
 
+//04.06.18
+//https://www.codewars.com/kata/514b92a657cdc65150000006
+//Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+
+
+function solution(number){
+  if (number < 2) return 0;
+  const reducer = (accumulator, currValue) => accumulator + currValue;
+  let arr = new Array(number).fill(0);
+  for(i = 0; i < number; i++){
+   if(i%3 === 0 || i%5 === 0) arr[i] = i;
+  }
+  return arr.reduce(reducer);
+}
+
+
