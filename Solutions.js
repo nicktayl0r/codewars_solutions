@@ -245,3 +245,19 @@ function solution(number){
 }
 
 
+//05.09.18
+//https://www.codewars.com/kata/unique-in-order/train/javascript
+//Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+var uniqueInOrder= (iterable) => {
+  let activeIndex = 0;
+  let output = [iterable[activeIndex]];
+  for(let i = 1; i < iterable.length; i++){
+    if(iterable[activeIndex] !== iterable[i]){
+      output.push(iterable[i]);
+      activeIndex = i;
+    }
+  }
+  return iterable.length === 0 ?  [] : output;
+} 
+
