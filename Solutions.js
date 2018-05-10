@@ -261,3 +261,24 @@ var uniqueInOrder= (iterable) => {
   return iterable.length === 0 ?  [] : output;
 } 
 
+//05.10.18
+//https://www.codewars.com/kata/57f8ff867a28db569e000c4a
+// Modify the kebabize function so that it converts a camel case string into a kebab case.
+
+const kebabize = (camel) => {
+  let output = "";
+  const LowerRegEx = /[a-z]/;
+  const UpperRegEx = /[A-Z]/;
+  
+  for(let i = 0; i < camel.length; i++){
+    if(LowerRegEx.test(camel[i])){
+      output += camel[i]
+    }else if(UpperRegEx.test(camel[i])){
+      let upCase = camel[i].toLowerCase();
+      output += output.length > 0 ? "-"+upCase : upCase; 
+    }
+  }
+  return output;
+}
+
+
