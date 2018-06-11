@@ -300,3 +300,26 @@ const duplicateCount = (text) => {
   return state.d;
 }
 
+
+
+//06.11.18
+//http://www.codewars.com/kata/57fb44a12b53146fe1000136/
+//Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+const balance = (left,right) => {
+  balanceState = 0;
+  for(let i = 0; i < Math.max(left.length, right.length); i++){
+    if (left[i] === "!") balanceState+=2
+    if (left[i] === "?") balanceState+=3
+    if (right[i] === "!") balanceState-=2
+    if (right[i] === "?") balanceState-=3
+  }
+
+ if(balanceState > 0){
+   return "Left";
+   } else if(balanceState < 0) {
+   return "Right";
+   } else {
+   return "Balance";
+  }
+}
